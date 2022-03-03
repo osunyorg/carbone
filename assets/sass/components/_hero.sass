@@ -1,0 +1,21 @@
+.hero
+    display: flex
+    min-height: 300px
+    padding-bottom: 2rem
+    padding-top: 2rem
+    @include media-breakpoint-up(md)
+        min-height: 450px
+    .container
+        display: flex
+        flex-direction: column
+        > div
+            @extend .col-md-8
+            margin: auto
+            text-align: center
+        h1
+            margin-bottom: 0
+        p
+            font-size: px2rem(20)
+            font-weight: 700
+            line-height: 1.3
+            margin-bottom: px2rem(10)

@@ -15,5 +15,8 @@ module:
 ## PARAMS
 params:
   _merge: deep
+  carbon:
+    home: 0.21
+    legal: 0.1
   cookie_banner:
     enable: false

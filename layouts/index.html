@@ -1,0 +1,57 @@
+{{ define "main" }}
+  {{ partial "home/hero.html" . }}
+
+  <div class="container">
+    {{ $pages := 0}}
+    {{ $tons := 0}}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Université</th>
+          <th>Visiteurs</th>
+          <th>Pages vues en moyenne</th>
+          <th>Pages vues par an</th>
+          <th>Carbone page d'accueil (g)</th>
+          <th>Carbone page mentions légales (g)</th>
+          <th>Carbone page moyenne (g)</th>
+          <th>Carbone total (tonnes eq CO2)</th>
+        </tr>
+        <tr class="small">
+          <td></td>
+          <td>Par mois, source Similarweb</td>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range where site.RegularPages "Section" "universities" }}
+          {{ $visitors_per_month := .Params.stats.visitors_per_month }}
+          {{ $average_pageviews := .Params.stats.average_pageviews }}
+          {{ $pages_per_year := mul 12 (mul $visitors_per_month $average_pageviews) }}
+          {{ $home := .Params.carbon.home}}
+          {{ $legal := .Params.carbon.legal}}
+          {{ $average_carbon := div (add $home $legal) 2 }}
+          {{ $total := mul $average_carbon $pages_per_year }}
+          {{ $total_tons := div $total 1000000 }}
+          {{ $pages = add $pages $pages_per_year }}
+          {{ $tons = add $tons $total_tons }}
+          <tr>
+            <td><a href="{{ .Permalink }}">{{ .Title }}</a></td>
+            <td>{{ $visitors_per_month | lang.FormatNumber 0 }}</td>
+            <td>{{ $average_pageviews | lang.FormatNumber 2 }}</td>
+            <td>{{ $pages_per_year | lang.FormatNumber 0 }}</td>
+            <td>{{ $home | lang.FormatNumber 2 }}</td>
+            <td>{{ $legal | lang.FormatNumber 2 }}</td>
+            <td>{{ $average_carbon | lang.FormatNumber 2 }}</td>
+            <td>{{ $total_tons | lang.FormatNumber 0 }}</td>
+          </tr>
+        {{ end }}
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="3">Total</th>
+          <th colspan="4">{{ $pages | lang.FormatNumber 0 }}</th>
+          <th>{{ $tons | lang.FormatNumber 0 }} </th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+{{ end }}

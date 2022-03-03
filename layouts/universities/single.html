@@ -1,0 +1,89 @@
+{{ define "main" }}
+  {{- partial "header/hero.html"
+        (dict
+          "title" .Title
+          "context" .
+        ) -}}
+
+{{ $visitors_per_month := .Params.stats.visitors_per_month }}
+{{ $average_pageviews := .Params.stats.average_pageviews }}
+{{ $pages_per_month := mul $visitors_per_month $average_pageviews }}
+{{ $pages_per_year := mul 12 $pages_per_month }}
+{{ $home := .Params.carbon.home}}
+{{ $legal := .Params.carbon.legal}}
+{{ $average_carbon := div (add $home $legal) 2 }}
+{{ $total_per_month := mul $average_carbon $pages_per_month }}
+{{ $total_per_year := mul $average_carbon $pages_per_year }}
+{{ $total_tons_per_month := div $total_per_month 1000000 }}
+{{ $total_tons_per_year := div $total_per_year 1000000 }}
+
+<div class="container">
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th width="400">Donnée</th>
+          <th width="150">Valeur</th>
+          <th>Source</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Site Web</td>
+          <td colspan="2"><a href="{{ .Params.website }}" target="_blank" rel="noreferrer">{{ .Params.website }}</a></td>
+        </tr>
+        <tr>
+          <td>Visiteurs par mois</td>
+          <td>{{ $visitors_per_month | lang.FormatNumber 0 }}</td>
+          <td>similarweb</td>
+        </tr>
+        <tr>
+          <td>Nombre moyen de pages par visite</td>
+          <td>{{ $average_pageviews | lang.FormatNumber 2 }}</td>
+          <td>similarweb</td>
+        </tr>
+        <tr>
+          <td>Pages vues par mois</td>
+          <td>{{ $pages_per_month | lang.FormatNumber 0 }}</td>
+          <td>Visiteurs par mois * Pages vues en moyenne</td>
+        </tr>
+        <tr>
+          <td>Pages vues par an</td>
+          <td>{{ $pages_per_year | lang.FormatNumber 0 }}</td>
+          <td>Pages vues par mois * 12</td>
+        </tr>
+        <tr>
+          <td>Impact carbone de la home</td>
+          <td>{{ $home | lang.FormatNumber 2 }} g</td>
+          <td>
+            Poids de la page calculé avec <a href="https://developers.google.com/web/tools/lighthouse" target="_blank" rel="noreferrer">Google Lighthouse</a>,
+            impact carbone calculé avec <a href="https://www.websitecarbon.com/" target="_blank" rel="noreferrer">Website carbon calculator</a>,
+            synthèse disponible sur <a href="https://diagnostic.noesya.coop/" target="_blank" rel="noreferrer">le diagnostic noesya</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Impact carbone de la page mentions légales</td>
+          <td>{{ $legal | lang.FormatNumber 2 }} g</td>
+          <td>Idem Impact carbone de la home</td>
+        </tr>
+        <tr>
+          <td>Impact carbone moyen d'une page</td>
+          <td>{{ $average_carbon | lang.FormatNumber 2 }} g</td>
+          <td>Moyenne de l'Impact carbone de la home et de l'Impact carbone de la page mentions légales</td>
+        </tr>
+        <tr>
+          <td>Tonnes équivalent CO2 par mois</td>
+          <td>{{ $total_tons_per_month | lang.FormatNumber 0 }} t eqCO2</td>
+          <td>Pages vues par mois * Impact carbone moyen d'une page</td>
+        </tr>
+        <tr>
+          <td>Tonnes équivalent CO2 par an</td>
+          <td>{{ $total_tons_per_year | lang.FormatNumber 0 }} t eqCO2</td>
+          <td>Pages vues par an * Impact carbone moyen d'une page</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{{ end }}

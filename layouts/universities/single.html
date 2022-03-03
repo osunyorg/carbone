@@ -25,8 +25,13 @@
 {{ $total_per_month_with_osuny := mul $average_carbon_with_osuny $pages_per_month }}
 {{ $total_tons_per_month_with_osuny := div $total_per_month_with_osuny 1000000 }}
 
+
 <div class="container">
-  <table class="table">
+  <canvas id="chart" height="400"></canvas>
+</div>
+
+<div class="container">
+  <table class="table" data-tons-per-month="{{ $total_tons_per_month }}" data-tons-per-month-with-osuny="{{ $total_tons_per_month_with_osuny }}"> 
     <thead>
       <tr>
         <th>Mois</th>

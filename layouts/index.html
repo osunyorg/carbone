@@ -39,7 +39,7 @@
           {{ $tons_without = add $tons_without $total_tons }}
           {{ $tons_with = add $tons_with $total_tons_per_year_with_osuny }}
           {{ $tons_saved = add $tons_saved $total_tons_saved }}
-          <tr>
+          <tr data-values="[{{ $total_tons }}, {{ $total_tons_per_year_with_osuny }}, {{ $total_tons_saved }}]">
             <td><a href="{{ .Permalink }}">{{ .Title }}</a></td>
             <td>{{ $pages_per_year | lang.FormatNumber 0 }}</td>
             <td>{{ $total_tons | lang.FormatNumber 0 }} t eq CO2</td>

@@ -5,6 +5,7 @@
   "author": "noesya",
   "license": "MIT",
   "dependencies": {
+    "chart.js": "^3.7.1",
     "osuny-hugo-theme": "./themes/osuny-hugo-theme"
   },
   "devDependencies": {

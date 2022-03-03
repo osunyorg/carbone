@@ -3,7 +3,9 @@
 
   <div class="container">
     {{ $pages := 0}}
-    {{ $tons := 0}}
+    {{ $tons_without := 0}}
+    {{ $tons_with := 0}}
+    {{ $tons_saved := 0}}
     <table class="table">
       <thead>
         <tr>
@@ -34,7 +36,9 @@
           {{ $total_tons_saved := sub $total_tons $total_tons_per_year_with_osuny }}
 
           {{ $pages = add $pages $pages_per_year }}
-          {{ $tons = add $tons $total_tons }}
+          {{ $tons_without = add $tons_without $total_tons }}
+          {{ $tons_with = add $tons_with $total_tons_per_year_with_osuny }}
+          {{ $tons_saved = add $tons_saved $total_tons_saved }}
           <tr>
             <td><a href="{{ .Permalink }}">{{ .Title }}</a></td>
             <td>{{ $pages_per_year | lang.FormatNumber 0 }}</td>
@@ -48,7 +52,9 @@
         <tr>
           <th>Total</th>
           <th>{{ $pages | lang.FormatNumber 0 }}</th>
-          <th>{{ $tons | lang.FormatNumber 0 }} </th>
+          <th>{{ $tons_without | lang.FormatNumber 0 }} t eq CO2</th>
+          <th>{{ $tons_with | lang.FormatNumber 0 }} t eq CO2</th>
+          <th>{{ $tons_saved | lang.FormatNumber 0 }} t eq CO2</th>
         </tr>
       </tfoot>
     </table>

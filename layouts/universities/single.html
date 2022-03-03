@@ -24,7 +24,6 @@
 {{ $average_carbon_with_osuny := div (add $home_with_osuny $legal_with_osuny) 2 }}
 {{ $total_per_month_with_osuny := mul $average_carbon_with_osuny $pages_per_month }}
 {{ $total_tons_per_month_with_osuny := div $total_per_month_with_osuny 1000000 }}
-{{ $average_carbon_with_osuny }}
 
 <div class="container">
   <table class="table">

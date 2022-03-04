@@ -15,6 +15,7 @@ module.exports = {
                     'd-none',
                     'row',
                     'col-md-6',
+                    'my-5',
                     /^dropdown/,
                     /^nav-level-/,
                     /^is-/,

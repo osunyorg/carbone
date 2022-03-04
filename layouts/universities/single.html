@@ -1,37 +1,38 @@
 {{ define "main" }}
+  {{ $visitors_per_month := .Params.stats.visitors_per_month }}
+  {{ $average_pageviews := .Params.stats.average_pageviews }}
+  {{ $pages_per_month := mul $visitors_per_month $average_pageviews }}
+  {{ $pages_per_year := mul 12 $pages_per_month }}
+
+  {{ $home := .Params.carbon.home}}
+  {{ $legal := .Params.carbon.legal}}
+  {{ $average_carbon := div (add $home $legal) 2 }}
+
+  {{ $total_per_month := mul $average_carbon $pages_per_month }}
+  {{ $total_per_year := mul $average_carbon $pages_per_year }}
+  {{ $total_tons_per_month := div $total_per_month 1000000 }}
+  {{ $total_tons_per_year := div $total_per_year 1000000 }}
+
+  {{ $home_with_osuny := site.Params.carbon.home}}
+  {{ $legal_with_osuny := site.Params.carbon.legal}}
+  {{ $average_carbon_with_osuny := div (add $home_with_osuny $legal_with_osuny) 2 }}
+  {{ $total_per_month_with_osuny := mul $average_carbon_with_osuny $pages_per_month }}
+  {{ $total_tons_per_month_with_osuny := div $total_per_month_with_osuny 1000000 }}
+  {{ $tons_saved_per_year := math.Round (sub $total_tons_per_year $total_tons_per_month_with_osuny) }}
+
+  {{ $title := printf "Université %s, %0.f tonnes eq CO2 à économiser par an avec le site %s" .Title $tons_saved_per_year .Params.website }}
   {{- partial "header/hero.html"
         (dict
-          "title" .Title
+          "title" $title
           "context" .
         ) -}}
-
-{{ $visitors_per_month := .Params.stats.visitors_per_month }}
-{{ $average_pageviews := .Params.stats.average_pageviews }}
-{{ $pages_per_month := mul $visitors_per_month $average_pageviews }}
-{{ $pages_per_year := mul 12 $pages_per_month }}
-
-{{ $home := .Params.carbon.home}}
-{{ $legal := .Params.carbon.legal}}
-{{ $average_carbon := div (add $home $legal) 2 }}
-
-{{ $total_per_month := mul $average_carbon $pages_per_month }}
-{{ $total_per_year := mul $average_carbon $pages_per_year }}
-{{ $total_tons_per_month := div $total_per_month 1000000 }}
-{{ $total_tons_per_year := div $total_per_year 1000000 }}
-
-{{ $home_with_osuny := site.Params.carbon.home}}
-{{ $legal_with_osuny := site.Params.carbon.legal}}
-{{ $average_carbon_with_osuny := div (add $home_with_osuny $legal_with_osuny) 2 }}
-{{ $total_per_month_with_osuny := mul $average_carbon_with_osuny $pages_per_month }}
-{{ $total_tons_per_month_with_osuny := div $total_per_month_with_osuny 1000000 }}
-
 
 <div class="container mb-5">
   <canvas id="chart" height="400"></canvas>
 </div>
 
 <div class="container">
-  <table class="table data-source" data-tons-per-month="{{ $total_tons_per_month }}" data-tons-per-month-with-osuny="{{ $total_tons_per_month_with_osuny }}">
+  <table id="data" class="table d-none" >
     <thead>
       <tr>
         <th>Mois</th>
@@ -48,7 +49,7 @@
           <td>{{ sub $num 12 }}</td>
           <td>{{ $tons_without | lang.FormatNumber 0 }}</td>
           <td></td>
-          <td></td>
+          <td>0</td>
         </tr>
       {{ end }}
       {{ $tons_with := $tons_without }}
@@ -74,66 +75,93 @@
         <tr>
           <th width="400">Donnée</th>
           <th width="150">Valeur</th>
-          <th>Source</th>
+          <th>Méthodologie</th>
+          <th>Incertitude</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>Site Web</td>
-          <td colspan="2"><a href="{{ .Params.website }}" target="_blank" rel="noreferrer">{{ .Params.website }}</a></td>
+          <td colspan="3"><a href="{{ .Params.website }}" target="_blank" rel="noreferrer">{{ .Params.website }}</a></td>
         </tr>
         <tr>
           <td>Visiteurs par mois</td>
           <td>{{ $visitors_per_month | lang.FormatNumber 0 }}</td>
-          <td>similarweb</td>
+          <td>Données issues de <a href="https://www.similarweb.com/fr/" target="_blank" rel="noreferrer">Similar Web</a></td>
+          <td class="small">
+            Les données sont possiblement surestimées, il faudrait utiliser des données réelles de l'Université.
+          </td>
         </tr>
         <tr>
           <td>Nombre moyen de pages par visite</td>
           <td>{{ $average_pageviews | lang.FormatNumber 2 }}</td>
-          <td>similarweb</td>
+          <td>Données issues de <a href="https://www.similarweb.com/fr/" target="_blank" rel="noreferrer">Similar Web</a></td>
+          <td class="small">
+            Les données sont possiblement surestimées, il faudrait utiliser des données réelles de l'Université.
+          </td>
         </tr>
         <tr>
           <td>Pages vues par mois</td>
           <td>{{ $pages_per_month | lang.FormatNumber 0 }}</td>
           <td>Visiteurs par mois * Pages vues en moyenne</td>
+          <td class="small">
+            Il n'y a pas d'incertitude sur le calcul, mais une incertitude sur les données.
+          </td>
         </tr>
         <tr>
           <td>Pages vues par an</td>
           <td>{{ $pages_per_year | lang.FormatNumber 0 }}</td>
           <td>Pages vues par mois * 12</td>
+          <td class="small">
+            Il n'y a pas d'incertitude sur le calcul, mais une incertitude sur les données.
+          </td>
         </tr>
         <tr>
-          <td>Impact carbone de la home</td>
+          <td>Impact carbone de la page d'accueil</td>
           <td>{{ $home | lang.FormatNumber 2 }} g</td>
           <td>
             Poids de la page calculé avec <a href="https://developers.google.com/web/tools/lighthouse" target="_blank" rel="noreferrer">Google Lighthouse</a>,
             impact carbone calculé avec <a href="https://www.websitecarbon.com/" target="_blank" rel="noreferrer">Website carbon calculator</a>,
             synthèse disponible sur <a href="https://diagnostic.noesya.coop/" target="_blank" rel="noreferrer">le diagnostic noesya</a>
           </td>
+          <td class="small">
+            La mesure du poids de page est exacte, mais varie en fonction de l'actualité présente sur la page. La conversion en carbone est une moyenne, pas une mesure réelle.
+          </td>
         </tr>
         <tr>
           <td>Impact carbone de la page mentions légales</td>
           <td>{{ $legal | lang.FormatNumber 2 }} g</td>
           <td>Idem Impact carbone de la home</td>
+          <td class="small">
+            La mesure du poids de page est exacte. La conversion en carbone est une moyenne, pas une mesure réelle.
+          </td>
         </tr>
         <tr>
           <td>Impact carbone moyen d'une page</td>
           <td>{{ $average_carbon | lang.FormatNumber 2 }} g</td>
-          <td>Moyenne de l'Impact carbone de la home et de l'Impact carbone de la page mentions légales</td>
+          <td>Moyenne de l'Impact carbone de la page d'accueil et de l'Impact carbone de la page mentions légales</td>
+          <td class="small">
+            Pour une mesure rigoureuse, il faudrait, pour chaque page, multiplier le nombre de vues par l'impact carbone. La moyenne accueil / mentions légales présente des incertitudes : il est possible que certaines pages soient plus lourdes que la page d'accueil, et la ventilation des poids de pages est incertaine. En revanche, il est peu probable que certaines pages soient plus légères que les mentions légales.
+          </td>
         </tr>
         <tr>
           <td>Tonnes équivalent CO2 par mois</td>
           <td>{{ $total_tons_per_month | lang.FormatNumber 0 }} t eqCO2</td>
-          <td>Pages vues par mois * Impact carbone moyen d'une page</td>
+          <td>Pages vues par mois * Impact carbone moyen d'une page</td>>
+          <td class="small">
+            Il n'y a pas d'incertitude sur le calcul, mais une incertitude sur les données.
+          </td>
         </tr>
         <tr>
           <td>Tonnes équivalent CO2 par an</td>
           <td>{{ $total_tons_per_year | lang.FormatNumber 0 }} t eqCO2</td>
           <td>Pages vues par an * Impact carbone moyen d'une page</td>
+          <td class="small">
+            Il n'y a pas d'incertitude sur le calcul, mais une incertitude sur les données.
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
-
 {{ end }}

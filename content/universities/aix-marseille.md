@@ -1,6 +1,6 @@
 ---
 title: Aix Marseille
-website: https://www.univ-amu.fr/
+website: https://www.univ-amu.fr
 stats:
   visitors_per_month: 3300000
   average_pageviews: 6.82

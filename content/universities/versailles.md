@@ -2,8 +2,8 @@
 title: UVSQ
 website: https://www.uvsq.fr
 stats:
-  visitors_per_month: 0
-  average_pageviews: 0
+  visitors_per_month: 309400
+  average_pageviews: 2.18
 carbon:
   home: 0
   legal: 0

@@ -1,7 +1,7 @@
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
-const table = document.querySelector('.table'),
+const table = document.querySelector('[data-tons-per-month]'),
     months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
     date = new Date(),
     monthOffset = date.getMonth(),

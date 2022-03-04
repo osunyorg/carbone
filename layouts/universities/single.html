@@ -38,36 +38,9 @@
 </div>
 
 <div class="container">
-  <table id="data" class="table d-none" data-tons-per-month="{{ $total_tons_per_month }}" data-tons-per-month-with-osuny="{{ $total_tons_per_month_with_osuny }}">
-    <thead>
-      <tr>
-        <th>Mois</th>
-        <th>Tonnes</th>
-        <th>Tonnes avec Osuny</th>
-        <th>Tonnes évitées</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{ $tons_without := 0 }}
-      {{ $tons_with := 0 }}
-      {{ $tons_saved := 0 }}
-      {{ range $num := (seq 12) }}
-        {{ $tons_without = add $total_tons_per_month $tons_without }}
-        {{ $tons_with = add $total_tons_per_month_with_osuny $tons_with }}
-        {{ $tons_saved = sub $tons_without $tons_with }}
-        <tr>
-          <td>Mois {{ $num }}</td>
-          <td>{{ $tons_without }}</td>
-          <td>{{ $tons_with }}</td>
-          <td>{{ $tons_saved }}</td>
-        </tr>
-      {{ end }}
-    </tbody>
-  </table>
-
   <h2>Méthodologie</h2>
   <div class="table-responsive">
-    <table class="table">
+    <table class="table" data-tons-per-month="{{ $total_tons_per_month }}" data-tons-per-month-with-osuny="{{ $total_tons_per_month_with_osuny }}">
       <thead>
         <tr>
           <th width="400">Donnée</th>

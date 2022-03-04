@@ -31,7 +31,7 @@
 </div>
 
 <div class="container">
-  <table class="table" data-tons-per-month="{{ $total_tons_per_month }}" data-tons-per-month-with-osuny="{{ $total_tons_per_month_with_osuny }}"> 
+  <table class="table data-source" data-tons-per-month="{{ $total_tons_per_month }}" data-tons-per-month-with-osuny="{{ $total_tons_per_month_with_osuny }}">
     <thead>
       <tr>
         <th>Mois</th>
@@ -40,29 +40,31 @@
         <th>Tonnes évitées</th>
       </tr>
     </thead>
-    {{ $tons_without := 0 }}
-    {{ range $num := (seq 12) }}
-      {{ $tons_without = add $total_tons_per_month $tons_without }}
-      <tr>
-        <td>{{ $num }}</td>
-        <td>{{ $tons_without | lang.FormatNumber 0 }}</td>
-        <td></td>
-        <td></td>
-      </tr>
-    {{ end }}
-    {{ $tons_with := $tons_without }}
-    {{ $tons_saved := 0 }}
-    {{ range $num := (seq 12) }}
-      {{ $tons_without = add $total_tons_per_month $tons_without }}
-      {{ $tons_with = add $total_tons_per_month_with_osuny $tons_with }}
-      {{ $tons_saved = sub $tons_without $tons_with }}
-      <tr>
-        <td>{{ add $num 12 }}</td>
-        <td>{{ $tons_without | lang.FormatNumber 0 }}</td>
-        <td>{{ $tons_with | lang.FormatNumber 0 }}</td>
-        <td>{{ $tons_saved | lang.FormatNumber 0 }}</td>
-      </tr>
-    {{ end }}
+    <tbody>
+      {{ $tons_without := 0 }}
+      {{ range $num := (seq 12) }}
+        {{ $tons_without = add $total_tons_per_month $tons_without }}
+        <tr>
+          <td>{{ sub $num 12 }}</td>
+          <td>{{ $tons_without | lang.FormatNumber 0 }}</td>
+          <td></td>
+          <td></td>
+        </tr>
+      {{ end }}
+      {{ $tons_with := $tons_without }}
+      {{ $tons_saved := 0 }}
+      {{ range $num := (seq 12) }}
+        {{ $tons_without = add $total_tons_per_month $tons_without }}
+        {{ $tons_with = add $total_tons_per_month_with_osuny $tons_with }}
+        {{ $tons_saved = sub $tons_without $tons_with }}
+        <tr>
+          <td>{{ $num }}</td>
+          <td>{{ $tons_without | lang.FormatNumber 0 }}</td>
+          <td>{{ $tons_with | lang.FormatNumber 0 }}</td>
+          <td>{{ $tons_saved | lang.FormatNumber 0 }}</td>
+        </tr>
+      {{ end }}
+    </tbody>
   </table>
 
   <h2>Méthodologie</h2>

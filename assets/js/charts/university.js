@@ -22,19 +22,13 @@ period.forEach(() => {
 chartData = {
     labels: period,
     datasets: [{
-        label: 'Tons without Osuny',
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgb(255, 99, 132)',
-        fill: true,
-        data: tons,
-        order: 2
-    },{
-        label: 'Tons with Osuny',
-        backgroundColor: 'rgb(99, 99, 132)',
-        borderColor: 'rgb(99, 99, 132)',
-        data: osunyTons,
-        fill: true,
-        order: 1
+        label: 'Sans Osuny',
+        backgroundColor: 'white',
+        data: tons
+    }, {
+        label: 'Avec Osuny',
+        backgroundColor: 'red',
+        data: osunyTons
     }]
 };
 
@@ -42,6 +36,15 @@ new Chart(document.getElementById('chart'), {
     type: 'bar',
     data: chartData,
     options: {
-        maintainAspectRatio: false
+        maintainAspectRatio: false,
+        responsive: true,
+        scales: {
+            x: {
+                stacked: true
+            },
+            y: {
+                stacked: true
+            }
+        }
     }
 });

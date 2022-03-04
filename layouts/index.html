@@ -1,12 +1,11 @@
 {{ define "main" }}
   {{ partial "home/hero.html" . }}
 
+  <div class="container mb-5">
+    <canvas id="chart" height="600"></canvas>
+  </div>
+
   <div class="container">
-
-    Graph bar horizontal stacked (62 bars, couleurs alternées ?):
-    - ligne du haut, tous les impacts carbone existants
-    - ligne du bas, tous les impacts carbones projetés
-
 
     {{ partial "universities/explanation.html" }}
 
@@ -55,7 +54,10 @@
           {{ $tons_without = add $tons_without $total_tons }}
           {{ $tons_with = add $tons_with $total_tons_per_year_with_osuny }}
           {{ $tons_saved = add $tons_saved $total_tons_saved }}
-          <tr data-values="[{{ $total_tons }}, {{ $total_tons_per_year_with_osuny }}, {{ $total_tons_saved }}]">
+          <tr 
+            data-name="{{ .Title }}" 
+            data-tons="{{ $total_tons }}" 
+            data-tons-with-osuny="{{ $total_tons_per_year_with_osuny }}">
             <td><a href="{{ .Permalink }}">{{ .Title }}</a></td>
             <td>{{ $average_carbon | lang.FormatNumber 2 }}</td>
             <td>{{ $total_tons | lang.FormatNumber 1 }}</td>

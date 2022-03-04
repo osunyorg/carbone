@@ -13,6 +13,8 @@ module.exports = {
                     'collapsed',
                     'table-responsive',
                     'd-none',
+                    'row',
+                    'col-md-6',
                     /^dropdown/,
                     /^nav-level-/,
                     /^is-/,

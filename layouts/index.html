@@ -1,11 +1,10 @@
 {{ define "main" }}
   {{ partial "home/hero.html" . }}
-  {{ $pages := 0}}
-  {{ $tons_without := 0}}
-  {{ $tons_with := 0}}
-  {{ $tons_saved := 0}}
 
   <div class="container">
+
+    {{ partial "universities/explanation.html" }}
+
     Graph bar horizontal stacked (62 bars, couleurs alternées ?):
     - ligne du haut, tous les impacts carbone existants
     - ligne du bas, tous les impacts carbones projetés
@@ -28,6 +27,10 @@
         </tr>
       </thead>
       <tbody>
+        {{ $pages := 0}}
+        {{ $tons_without := 0}}
+        {{ $tons_with := 0}}
+        {{ $tons_saved := 0}}
         {{ range where site.RegularPages "Section" "universities" }}
           {{ $visitors_per_month := .Params.stats.visitors_per_month }}
           {{ $average_pageviews := .Params.stats.average_pageviews }}

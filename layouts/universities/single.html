@@ -33,11 +33,11 @@
           "context" .
         ) -}}
 
-<div class="container mb-5">
-  <canvas id="chart" height="400"></canvas>
-</div>
-
 <div class="container">
+  <canvas id="chart" height="400" class="mb-5"></canvas>
+
+  {{ partial "universities/explanation.html" }}
+
   <h2>Méthodologie</h2>
   <div class="table-responsive">
     <table class="table" data-tons-per-month="{{ $total_tons_per_month }}" data-tons-per-month-with-osuny="{{ $total_tons_per_month_with_osuny }}">

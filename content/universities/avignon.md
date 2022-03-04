@@ -1,5 +1,5 @@
 ---
-title: Avignon et Pays du Vaucluse
+title: Avignon
 website: https://univ-avignon.fr
 stats:
   visitors_per_month: 643800

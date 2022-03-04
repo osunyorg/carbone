@@ -1,5 +1,5 @@
 ---
-title: Bourgogne Dijon
+title: Bourgogne
 website: https://www.u-bourgogne.fr
 stats:
   visitors_per_month: 1300000

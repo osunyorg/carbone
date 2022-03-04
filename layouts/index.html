@@ -1,11 +1,14 @@
 {{ define "main" }}
   {{ partial "home/hero.html" . }}
+  {{ $pages := 0}}
+  {{ $tons_without := 0}}
+  {{ $tons_with := 0}}
+  {{ $tons_saved := 0}}
 
   <div class="container">
-    {{ $pages := 0}}
-    {{ $tons_without := 0}}
-    {{ $tons_with := 0}}
-    {{ $tons_saved := 0}}
+    Graph bar horizontal stacked (62 bars, couleurs alternées ?):
+    - ligne du haut, tous les impacts carbone existants
+    - ligne du bas, tous les impacts carbones projetés
     <table class="table">
       <thead>
         <tr>

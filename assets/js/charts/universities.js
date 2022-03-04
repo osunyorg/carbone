@@ -19,7 +19,7 @@ export const makeUniversitiesChart = function () {
             label: name,
             legend: false,
             data: [tonsPerYear, osunyTonsPerYear],
-            backgroundColor: i % 2 === 0 ? 'white' : 'grey',
+            backgroundColor: i % 2 === 0 ? 'rgb(255,255,255)' : 'rgb(225,225,225)',
             stack: 'tons',
             fill: true,
             order: 1

@@ -6,5 +6,5 @@ stats:
   average_pageviews: 5.18
 carbon:
   home: 4.47
-  legal: 0
+  legal: 0.82
 ---

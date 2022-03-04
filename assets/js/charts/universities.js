@@ -43,6 +43,11 @@ export const makeUniversitiesChart = function () {
                 y: {
                     stacked: true
                 }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
             }
         }
     });

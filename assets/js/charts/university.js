@@ -7,6 +7,7 @@ const table = document.querySelector('.table'),
     tonsPerMonthWithOsuny = parseFloat(table.getAttribute('data-tons-per-month-with-osuny')),
     tons = [],
     osunyTons = [],
+    savedTons = [],
     cumulate = (increment, array) => {
         const value = array.length === 0 ? 0 : array[array.length -1];
         return value + increment;
@@ -17,31 +18,48 @@ let chartData;
 period.forEach(() => {
     tons.push(cumulate(tonsPerMonth, tons));
     osunyTons.push(cumulate(tonsPerMonthWithOsuny, osunyTons));
+    savedTons.push(cumulate(tonsPerMonth - tonsPerMonthWithOsuny, savedTons));
 });
 
 chartData = {
     labels: period,
     datasets: [{
         label: 'Tons without Osuny',
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgb(255, 99, 132)',
-        fill: true,
+        backgroundColor: 'orange',
+        borderColor: 'orange',
+        // fill: true,
         data: tons,
-        order: 2
-    },{
+        stack: 'without'
+    }, {
         label: 'Tons with Osuny',
-        backgroundColor: 'rgb(99, 99, 132)',
-        borderColor: 'rgb(99, 99, 132)',
+        backgroundColor: 'white',
+        borderColor: 'white',
         data: osunyTons,
+        type: 'bar',
+        // fill: true,
+        stack: 'osuny'
+    }, {
+        label: 'Tons saved with Osuny',
+        backgroundColor: 'green',
+        data: savedTons,
         fill: true,
-        order: 1
+        stack: 'osuny',
+        type: 'bar'
     }]
 };
 
 new Chart(document.getElementById('chart'), {
-    type: 'bar',
+    type: 'line',
     data: chartData,
     options: {
-        maintainAspectRatio: false
+        maintainAspectRatio: false,
+        scales: {
+            x: {
+                stacked: true,
+            },
+            y: {
+                stacked: true
+            }
+        }
     }
 });

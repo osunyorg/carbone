@@ -28,7 +28,7 @@ new Chart(document.getElementById('chart'), {
             fill: true,
             order: 1
         }, {
-            label: 'Tonnes eq CO2 économisables',
+            label: 'Tonnes eq CO2 évitables',
             backgroundColor: '#55C461',
             data: tonsSaved,
             fill: true,

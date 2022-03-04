@@ -10,10 +10,18 @@
       <thead>
         <tr>
           <th>Université</th>
-          <th>Pages vues par an</th>
-          <th>Carbone actuel par an</th>
-          <th>Carbone avec Osuny par an</th>
-          <th>Carbone évité par an</th>
+          <th>
+            Impact carbone moyen d'une page
+            <small>(g eq CO2)</small>
+          </th>
+          <th>
+            Impact carbone annuel
+            <small>(t eq CO2)</small>
+          </th>
+          <th>
+            Impact carbone annuel évitable
+            <small>(t eq CO2)</small>
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -41,20 +49,18 @@
           {{ $tons_saved = add $tons_saved $total_tons_saved }}
           <tr data-values="[{{ $total_tons }}, {{ $total_tons_per_year_with_osuny }}, {{ $total_tons_saved }}]">
             <td><a href="{{ .Permalink }}">{{ .Title }}</a></td>
-            <td>{{ $pages_per_year | lang.FormatNumber 0 }}</td>
-            <td>{{ $total_tons | lang.FormatNumber 0 }} t eq CO2</td>
-            <td>{{ $total_tons_per_year_with_osuny | lang.FormatNumber 0 }} t eq CO2</td>
-            <td>{{ $total_tons_saved | lang.FormatNumber 0 }} t eq CO2</td>
+            <td>{{ $average_carbon | lang.FormatNumber 2 }}</td>
+            <td>{{ $total_tons | lang.FormatNumber 1 }}</td>
+            <td>{{ $total_tons_saved | lang.FormatNumber 1 }}</td>
           </tr>
         {{ end }}
       </tbody>
       <tfoot>
         <tr>
           <th>Total</th>
-          <th>{{ $pages | lang.FormatNumber 0 }}</th>
-          <th>{{ $tons_without | lang.FormatNumber 0 }} t eq CO2</th>
-          <th>{{ $tons_with | lang.FormatNumber 0 }} t eq CO2</th>
-          <th>{{ $tons_saved | lang.FormatNumber 0 }} t eq CO2</th>
+          <th></th>
+          <th>{{ $tons_without | lang.FormatNumber 1 }}</th>
+          <th>{{ $tons_saved | lang.FormatNumber 1 }}</th>
         </tr>
       </tfoot>
     </table>

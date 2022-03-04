@@ -15,7 +15,7 @@ for (let row of data.rows) {
         tonsSaved.push(row.cells[3].innerText);
     }
     index += 1;
-};
+}
 
 new Chart(document.getElementById('chart'), {
     type: 'bar',
@@ -29,7 +29,7 @@ new Chart(document.getElementById('chart'), {
             order: 1
         }, {
             label: 'Tonnes eq CO2 économisables',
-            backgroundColor: 'green',
+            backgroundColor: '#55C461',
             data: tonsSaved,
             fill: true,
             order: 2

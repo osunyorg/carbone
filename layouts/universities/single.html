@@ -170,8 +170,8 @@
           </td>
         </tr>
         <tr>
-          <td>Impact carbone de la page d'accueil</td>
-          <td>{{ $home | lang.FormatNumber 2 }} g</td>
+          <td>Impact carbone de la page d'accueil avec Osuny</td>
+          <td>{{ site.Params.carbon.home | lang.FormatNumber 2 }} g</td>
           <td>
             Poids de la page calculé avec <a href="https://developers.google.com/web/tools/lighthouse" target="_blank" rel="noreferrer">Google Lighthouse</a>,
             impact carbone calculé avec <a href="https://www.websitecarbon.com/" target="_blank" rel="noreferrer">Website carbon calculator</a>,
@@ -183,7 +183,7 @@
         </tr>
         <tr>
           <td>Impact carbone de la page mentions légales</td>
-          <td>{{ $legal | lang.FormatNumber 2 }} g</td>
+          <td>{{ site.Params.carbon.legal | lang.FormatNumber 2 }} g</td>
           <td>Idem Impact carbone de la home</td>
           <td class="small">
             La mesure du poids de page est exacte. La conversion en carbone est une moyenne, pas une mesure réelle.

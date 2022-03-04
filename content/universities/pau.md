@@ -5,6 +5,6 @@ stats:
   visitors_per_month: 631600
   average_pageviews: 5.82
 carbon:
-  home: 0
+  home: 1.33
   legal: 0
 ---

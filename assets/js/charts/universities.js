@@ -95,21 +95,32 @@ export const makeUniversitiesChart = function () {
     });
 
     // Handle actions
-    const resetColors = function () {
-        chart.data.datasets.forEach((data, i) => {
-            if (data.id !== 'saved') {
-                data.backgroundColor = i % 2 === 0 ? COLORS.white : COLORS.grey;
-            }
-        });
-    };
-
     buttons = document.querySelectorAll('[data-chart-action]');
+
+    const resetColors = function () {
+            chart.data.datasets.forEach((data, i) => {
+                if (data.id !== 'saved') {
+                    data.backgroundColor = i % 2 === 0 ? COLORS.white : COLORS.grey;
+                }
+            });
+        },
+        toggleButtons = function (action) {
+            buttons.forEach((button) => {
+                if (button.getAttribute('data-chart-action') === action) {
+                    button.classList.add('d-none');
+                } else {
+                    button.classList.remove('d-none');
+                }
+            });
+        };
+
     actions = {
         orderByTons: () => {
             chart.data.datasets.sort((a, b) => {
                 return b.data[0] - a.data[0];
             });
             resetColors();
+            toggleButtons('orderByTons');
             chart.update();
         },
         orderByName: () => {
@@ -117,6 +128,7 @@ export const makeUniversitiesChart = function () {
                 return a.index - b.index;
             });
             resetColors();
+            toggleButtons('orderByName');
             chart.update();
         }
     };
@@ -127,4 +139,5 @@ export const makeUniversitiesChart = function () {
             button.addEventListener('click', actions[action]);
         }
     });
+
 };

@@ -2,11 +2,19 @@
   {{ partial "home/hero.html" . }}
 
   <div class="container mb-5">
-    <canvas id="chart" height="200"></canvas>
+    <div>
+      <canvas id="chart" height="200" aria-label="Impact carbone projeté des sites internet des universités sur un an." role="img">
+        Votre navigateur ne supporte pas l'affichage de l'élément canvas.
+      </canvas>
+    </div>
+
+    <a class="link" data-chart-action="orderByTons"><small>Trier par tonnes</small></a>
+    <a class="link d-none" data-chart-action="orderByName"><small>Trier par noms</small></a>
   </div>
 
   <div class="container">
 
+    
     {{ partial "universities/explanation.html" }}
 
     <table class="table">

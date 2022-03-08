@@ -1,5 +1,5 @@
 ---
-title: Évry
+title: Evry
 website: https://www.univ-evry.fr
 stats:
   visitors_per_month: 489000

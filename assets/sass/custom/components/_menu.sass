@@ -1,2 +1,59 @@
 .menu
     @extend .menu-expand
+    background: transparent
+
+    .dropdown-menu
+        @include media-breakpoint-down(lg)
+            background: transparent
+        @include media-breakpoint-up(lg)
+            padding-bottom: px2rem(50)
+            padding-top: px2rem(50)
+
+        p
+            margin-bottom: 0
+            @include media-breakpoint-down(md)
+                font-size: $small-font-size
+
+        .nav-level-2
+            & > li
+                position: relative
+                @include media-breakpoint-down(lg)
+                    padding: $navbar-padding-y $navbar-padding-x
+                & > a,
+                & > span
+                    font-weight: 700
+                &:not(.has-children) > a
+                    @extend .stretched-link
+
+        .nav-level-3
+            & > li
+                & > a
+                    @extend .link
+                    @extend .link-more
+
+        @include media-breakpoint-down(lg)
+            .nav-level-1
+                > .has-children
+                    li
+                        border-top: 0
+                > li:not(:last-child)
+                    border-bottom: 0
+
+        @include media-breakpoint-up(md)
+            .nav-level-2
+                & > li
+                    & > a,
+                    & > span
+                        font-size: px2rem(22)
+                        line-height: px2rem(28)
+                    & > p
+                        font-size: px2rem(18)
+                        line-height: px2rem(28)
+                        max-width: 75%
+
+            .nav-level-3
+                & > li
+                    & > a,
+                    & > span
+                        font-size: px2rem(18)
+                        line-height: px2rem(28)

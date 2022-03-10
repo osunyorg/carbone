@@ -74,7 +74,6 @@ export const makeUniversitiesChart = function () {
             indexAxis: 'y',
             maintainAspectRatio: false,
             responsive: true,
-            padding: 0,
             scales: {
                 x: {
                     stacked: true
@@ -83,7 +82,8 @@ export const makeUniversitiesChart = function () {
                     stacked: true,
                     ticks: {
                         display: false
-                    }
+                    },
+                    alignToPixels: true
                 }
             },
             plugins: {

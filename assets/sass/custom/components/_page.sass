@@ -1,0 +1,18 @@
+.page
+    padding-bottom: 1rem
+    padding-top: 1rem
+    position: relative
+    .title
+        font-size: px2rem(20)
+        font-weight: 700
+        line-height: px2rem(28)
+        & + p
+            @extend .link
+            @extend .link-more
+            font-size: px2rem(18)
+            line-height: px2rem(28)
+    p
+        margin-bottom: 0
+    a
+        @extend .stretched-link
+        text-decoration: none

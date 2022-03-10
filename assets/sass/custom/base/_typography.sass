@@ -2,9 +2,19 @@ h1
     font-family: $font-family-serif
     font-style: italic
     font-weight: 400
-    line-height: px2rem(70)
+    line-height: px2rem(44)
+    @include media-breakpoint-up(md)
+        font-size: px2rem(50)
+        line-height: px2rem(70)
+
+h2
+    line-height: px2rem(36)
 
 blockquote
     font-family: $font-family-serif
     font-style: italic
     font-weight: 400
+
+.subline
+    border-bottom: 1px solid rgba(white, .5)
+    padding-bottom: px2rem(10)

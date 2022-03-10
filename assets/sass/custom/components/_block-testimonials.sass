@@ -1,0 +1,25 @@
+.block-testimonials
+    @extend .col-md-10
+    @extend .offset-md-2
+
+    .testimonials
+        margin-left: auto
+        position: relative
+        width: calc(80% - (#{$grid-gutter-width} / 4))
+
+    blockquote
+        @include media-breakpoint-up(md)
+            font-size: px2rem(40)
+            line-height: px2rem(60)
+        &::before
+            position: absolute
+            top: 0
+            transform: translateY(-50%)
+    figcaption
+        &::before
+            content: none
+
+    .avatar
+        bottom: 0
+        position: absolute
+        right: calc(100% + #{$grid-gutter-width})

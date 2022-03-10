@@ -1,0 +1,30 @@
+.page__home
+
+    .hero
+        nav
+            display: none
+
+    main
+        section
+            margin-bottom: 5rem
+
+        @include media-breakpoint-up(lg)
+            section:first-of-type
+                max-width: $text-width-8
+            .top
+                margin-bottom: 0.5rem
+                h2
+                    width: 100%
+                a
+                    border-bottom: 1px solid rgba(white, .3)
+                    display: block
+                    padding-bottom: 0.5rem
+                    text-decoration: none
+                    transition: border .3s ease
+                    &:hover
+                        border-bottom-color: white
+                > div
+                    position: absolute
+                    right: 0
+                    white-space: nowrap
+                    width: auto

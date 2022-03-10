@@ -17,7 +17,7 @@ https://github.com/noesya/osuny-hugo-template
 
 Pour faire la mise à jour :
 ```
-git remote add template git@github.com:noesya/osuny-hugo-template.git
+git remote add template git@github.com:noesya/osuny-carbone.git
 git fetch --all
 git merge template/main --allow-unrelated-histories
 ```

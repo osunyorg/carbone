@@ -4,18 +4,22 @@ footer[role="contentinfo"]
     padding-top: px2rem(40)
     @include media-breakpoint-up(lg)
         padding-bottom: px2rem(140)
-        padding-top: px2rem(40)
 
     .logo
         display: inline-block
         margin-bottom: px2rem(100)
+        text-decoration: none
+        @include media-breakpoint-down(md)
+            text-align: center
         @include media-breakpoint-up(md)
             margin-bottom: px2rem(30)
         img
             height: 33px
             max-width: 100%
             width: auto
-        & + p
+        span
+            display: block
+        & + p, p
             font-family: $font-family-serif
             font-size: px2rem(20)
             font-style: italic
@@ -44,7 +48,7 @@ footer[role="contentinfo"]
                 @include media-breakpoint-down(md)
                     align-items: center
                     padding-bottom: px2rem(150)
-                    padding-top: px2rem(240)
+                    padding-top: px2rem(215)
                     text-align: center
                     p
                         max-width: 59%

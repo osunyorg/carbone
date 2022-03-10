@@ -1,0 +1,18 @@
+{{ partial "footer/stakeholder.html" }}
+<div class="content">
+  <div>
+    <nav role="navigation" aria-label="{{ i18n "commons.menu.legal" }}">
+      {{ partial "commons/menu.html"
+            (dict
+              "items"       site.Data.menus.legal
+              "level"       1
+              "class"       "nav-legal"
+            )}}
+    </nav>
+    {{ partial "footer/credit.html" }}
+  </div>
+  <div>
+    {{ partial "footer/logo.html" }}
+    {{ partial "footer/site.html" }}
+  </div>
+</div>

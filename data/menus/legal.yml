@@ -1,0 +1,22 @@
+---
+- title: github
+  target: https://github.com/noesya/osuny/
+  kind: url
+  children: []
+- title: noesya
+  target: https://www.noesya.coop/
+  kind: url
+  children: []
+- title: développeurs
+  target: https://developers.osuny.org/
+  kind: url
+  children: []
+- title: mentions légales
+  target: "/mentions-legales/"
+  kind: page
+  children: []
+- title: politique de sobriété
+  target: "/politique-de-sobriete/"
+  kind: page
+  children: []
+

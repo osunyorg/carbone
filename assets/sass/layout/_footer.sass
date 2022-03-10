@@ -24,10 +24,10 @@ footer[role="contentinfo"]
             margin-bottom: 0
 
     .content
-        @include media-breakpoint-down(lg)
-            // background-image: url('../images/sun.svg')
-            // background-position: center top
-            // background-repeat: no-repeat
+        @include media-breakpoint-down(md)
+            background-image: url('../images/sun.svg')
+            background-position: center top
+            background-repeat: no-repeat
             background-size: 1000px auto
             padding-top: px2rem(30)
         > div
@@ -41,7 +41,7 @@ footer[role="contentinfo"]
                 display: flex
                 flex-direction: column
                 justify-content: flex-end
-                @include media-breakpoint-down(lg)
+                @include media-breakpoint-down(md)
                     align-items: center
                     padding-bottom: px2rem(150)
                     padding-top: px2rem(240)

@@ -1,0 +1,14 @@
+---
+- title: développeurs
+  target: https://developers.osuny.org/
+  kind: url
+  children: []
+- title: github
+  target: https://github.com/noesya/osuny/
+  kind: url
+  children: []
+- title: noesya
+  target: https://www.noesya.coop/
+  kind: url
+  children: []
+

@@ -1,0 +1,3 @@
+{{ with site.GetPage "/" }}
+  <p>{{ safeHTML (partial "CorrectPunctuation" .Params.header_text) }}</p>
+{{ end }}

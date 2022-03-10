@@ -1,0 +1,9 @@
+<header class="hero">
+  <div class="container">
+    <div>
+      <p>{{ safeHTML (partial "CorrectPunctuation" .Title) }}</p>
+      <h1>{{ safeHTML (partial "CorrectPunctuation" .Params.description) }}</h1>
+    </div>
+    {{ partial "header/breadcrumbs.html" . }}
+  </div>
+</header>

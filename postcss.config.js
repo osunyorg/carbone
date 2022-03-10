@@ -22,6 +22,9 @@ module.exports = {
                     /^has-/,
                     /^js-/
                 ],
+                deep: [
+                    /table/
+                ],
                 greedy: [
                     /administrators__/,
                     /articles__/,

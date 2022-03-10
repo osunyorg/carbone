@@ -1,0 +1,12 @@
+.persons__page
+    main
+        .content
+            @include media-breakpoint-up(md)
+                > div:first-of-type
+                    @include make-col(6)
+                > div:last-of-type
+                    @include make-col(5)
+                    @include make-col-offset(1)
+            h2
+                @extend .subline
+                margin-bottom: px2rem(20)

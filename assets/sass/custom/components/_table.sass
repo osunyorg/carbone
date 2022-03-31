@@ -26,3 +26,14 @@
 
     th:nth-child(n + 2)
         min-width: 180px
+
+    caption
+        @extend .visually-hidden
+    thead:not(:first-child)
+        border-top: 0
+    tbody
+        th
+            font-weight: 400
+    tfoot
+        td
+            font-weight: 700

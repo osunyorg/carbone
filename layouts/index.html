@@ -14,22 +14,23 @@
 
   <div class="container">
 
-    
+
     {{ partial "universities/explanation.html" }}
     <div class="table-responsive">
       <table class="table">
+        <caption>Liste des Université</caption>
         <thead>
           <tr>
-            <th data-sort-default>Université</th>
-            <th>
+            <th scope="col" data-sort-default>Université</th>
+            <th scope="col">
               Impact carbone moyen d'une page
               <small>(g eq CO2)</small>
             </th>
-            <th data-sort-method='number'>
+            <th scope="col" data-sort-method='number'>
               Impact carbone annuel
               <small>(t eq CO2)</small>
             </th>
-            <th data-sort-method='number'>
+            <th scope="col" data-sort-method='number'>
               Impact carbone annuel évitable
               <small>(t eq CO2)</small>
             </th>
@@ -62,11 +63,11 @@
             {{ $tons_without = add $tons_without $total_tons }}
             {{ $tons_with = add $tons_with $total_tons_per_year_with_osuny }}
             {{ $tons_saved = add $tons_saved $total_tons_saved }}
-            <tr 
-              data-name="{{ .Title }}" 
-              data-tons="{{ $total_tons }}" 
+            <tr
+              data-name="{{ .Title }}"
+              data-tons="{{ $total_tons }}"
               data-tons-with-osuny="{{ $total_tons_per_year_with_osuny }}">
-              <td><a href="{{ .Permalink }}">{{ .Title }}</a></td>
+              <th scope="row"><a href="{{ .Permalink }}">{{ .Title }}</a></th>
               <td data-sort="{{ $average_carbon }}">{{ $average_carbon | lang.FormatNumber 2 }}</td>
               <td data-sort="{{ $total_tons }}">{{ $total_tons | lang.FormatNumber 1 }}</td>
               <td data-sort="{{ $total_tons_saved }}">{{ $total_tons_saved | lang.FormatNumber 1 }}</td>
@@ -75,10 +76,9 @@
         </tbody>
         <tfoot>
           <tr>
-            <th>Total</th>
-            <th></th>
-            <th>{{ $tons_without | lang.FormatNumber 1 }}</th>
-            <th>{{ $tons_saved | lang.FormatNumber 1 }}</th>
+            <th scope="row" colspan="2">Total</th>
+            <td>{{ $tons_without | lang.FormatNumber 1 }}</td>
+            <td>{{ $tons_saved | lang.FormatNumber 1 }}</td>
           </tr>
         </tfoot>
       </table>

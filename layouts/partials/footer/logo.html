@@ -1,6 +1,5 @@
 {{ $file := "/assets/images/logo.svg" }}
-{{ $fileDimensions := partial "GetImageSize" (dict "context" . "file" $file "static" true) }}
 <a class="logo" href="https://www.osuny.org">
     <span>Découvrez</span>
-    <img src="{{ $file }}" alt="{{ site.Title }}" height="{{ index $fileDimensions 1 }}" width="{{ index $fileDimensions 0 }}" loading="lazy">
+    <img src="{{ $file }}" alt="{{ site.Title }}" height="455" width="1951" loading="lazy">
 </a>

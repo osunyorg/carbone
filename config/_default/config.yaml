@@ -16,7 +16,7 @@ module:
 params:
   _merge: deep
   carbon:
-    home: 0.21
-    legal: 0.1
+    home: 0.08
+    legal: 0.04
   cookie_banner:
     enable: false

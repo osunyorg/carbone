@@ -16,3 +16,19 @@
     a
         @extend .stretched-link
         text-decoration: none
+
+.pages__section
+    [itemprop="articleBody"],
+    [class^='block'],
+    [class*=' block']
+        h2
+            @extend .subline
+            margin-bottom: px2rem(30)
+    [itemprop="articleBody"] ~ section .top
+        h2
+            @extend .subline
+            width: 100%
+
+    @include media-breakpoint-up(lg)
+        [itemprop='articleBody']
+            max-width: $text-width-10

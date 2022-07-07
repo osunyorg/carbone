@@ -1,4 +1,4 @@
-import './bootstrap';
+import './vendors/bootstrap';
 import { makeUniversityChart } from './charts/university.js';
 import { makeUniversitiesChart } from './charts/universities.js';
 import { makeSortableTable } from './table/table.js';

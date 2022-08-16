@@ -1,5 +1,5 @@
 ---
-title: Bordeaux Montaigne
+title: Université Bordeaux Montaigne
 website: https://www.u-bordeaux-montaigne.fr
 stats:
   visitors_per_month: 1100000

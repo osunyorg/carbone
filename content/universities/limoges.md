@@ -1,5 +1,5 @@
 ---
-title: Limoges
+title: Université de Limoges
 website: https://www.unilim.fr
 stats:
   visitors_per_month: 1100000

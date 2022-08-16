@@ -1,5 +1,5 @@
 ---
-title: Pau et Pays de l'Adour
+title: Université de Pau et des Pays de l'Adour
 website: https://www.univ-pau.fr
 stats:
   visitors_per_month: 631600

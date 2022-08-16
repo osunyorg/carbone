@@ -1,5 +1,5 @@
 ---
-title: "École supérieure des technologies industrielles avancées"
+title: "ESTIA"
 website: "http://www.estia.fr"
 stats:
   visitors_per_month: 139600

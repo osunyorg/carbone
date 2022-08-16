@@ -1,5 +1,5 @@
 ---
-title: La Rochelle
+title: Université de La Rochelle
 website: https://www.univ-larochelle.fr
 stats:
   visitors_per_month: 86200

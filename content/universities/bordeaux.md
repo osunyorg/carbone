@@ -1,5 +1,5 @@
 ---
-title: Bordeaux
+title: Université de Bordeaux
 website: https://www.u-bordeaux.fr
 stats:
   visitors_per_month: 1900000

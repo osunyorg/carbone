@@ -1,5 +1,7 @@
 ---
-title: Paris
+title: Paris Cité
+aliases: 
+- /paris/
 website: https://u-paris.fr
 stats:
   visitors_per_month: 2000000

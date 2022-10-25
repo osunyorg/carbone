@@ -1,22 +1,14 @@
 ---
-- title: github
-  target: https://github.com/noesya/osuny/
-  kind: url
-  children: []
-- title: noesya
-  target: https://www.noesya.coop/
-  kind: url
-  children: []
-- title: développeurs
-  target: https://developers.osuny.org/
-  kind: url
-  children: []
 - title: mentions légales
   target: https://www.osuny.org/mentions-legales/
   kind: url
   children: []
 - title: politique de sobriété
   target: https://www.osuny.org/politique-de-sobriete/
+  kind: url
+  children: []
+- title: accessibilité
+  target: https://www.osuny.org/a11y/
   kind: url
   children: []
 

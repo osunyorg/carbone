@@ -2,9 +2,9 @@ footer[role="contentinfo"]
     background-color: black
     padding-bottom: 0
     padding-top: px2rem(40)
-    @include media-breakpoint-up(lg)
-        padding-bottom: px2rem(140)
-
+    margin-bottom: 0
+    @include media-breakpoint-up(md)
+        padding-bottom: px2rem(40)
     .logo
         display: inline-block
         margin-bottom: px2rem(100)
@@ -29,41 +29,42 @@ footer[role="contentinfo"]
             margin-bottom: 0
 
     .content
+        margin-bottom: 0
         @include media-breakpoint-down(md)
             background-image: url('../images/sun.svg')
-            background-position: center top
+            background-position: center bottom -80px
             background-repeat: no-repeat
             background-size: 1000px auto
-            padding-top: px2rem(30)
         > div
             @include media-breakpoint-up(md)
-                width: 50%
+                width: 70%
                 &:last-child
+                    width: 30%
                     text-align: right
+                    margin-left: 0
             &:last-child
-                @extend .col-lg-3
-                @extend .offset-lg-3
-                display: flex
-                flex-direction: column
-                justify-content: flex-end
+                p
+                    max-width: 300px
+                    margin-left: auto
                 @include media-breakpoint-down(md)
                     align-items: center
                     padding-bottom: px2rem(150)
                     padding-top: px2rem(215)
                     text-align: center
                     p
-                        max-width: 59%
-    nav
-        margin-left: -$nav-link-padding-x
-        > ul
-            @extend .nav
-            flex-direction: column
-        li
-            @extend .nav-item
-        a,
-        span
-            @extend .nav-link
-            font-size: px2rem(14)
+                        width: 80%
+                        min-height: 140px
+                        margin: 0 auto
 
-    .nav-level-1
-        margin-left: 0
+    .complementary
+        display: block
+        .credit::before
+            content: ""
+        .nav-level-1
+            margin-left: 0
+            margin-bottom: 1rem
+            li
+                margin-left: 0
+                margin-right: 10px
+                a
+                    padding-left: 0

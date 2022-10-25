@@ -23,7 +23,7 @@
   {{ $tons_saved_per_month := sub $total_tons_per_month $total_tons_per_month_with_osuny}}
   {{ $tons_saved_per_year := sub $total_tons_per_year $total_tons_per_year_with_osuny }}
 
-  {{ $title := printf "%s : %0.f tonnes équivalent CO2 évitables par an"
+  {{ $title := printf "%s <br> %0.f tonnes équivalent CO2 évitables par an ?"
                     .Title
                     $tons_saved_per_year
                   }}

@@ -76,7 +76,8 @@ export const makeUniversitiesChart = function () {
             responsive: true,
             scales: {
                 x: {
-                    stacked: true
+                    stacked: true,
+                    max: 10000
                 },
                 y: {
                     stacked: true,

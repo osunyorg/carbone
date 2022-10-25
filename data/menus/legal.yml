@@ -12,11 +12,11 @@
   kind: url
   children: []
 - title: mentions légales
-  target: "/mentions-legales/"
-  kind: page
+  target: https://www.osuny.org/mentions-legales/
+  kind: url
   children: []
 - title: politique de sobriété
-  target: "/politique-de-sobriete/"
-  kind: page
+  target: https://www.osuny.org/politique-de-sobriete/
+  kind: url
   children: []
 

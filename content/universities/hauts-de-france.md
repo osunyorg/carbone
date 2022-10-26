@@ -1,5 +1,5 @@
 ---
-title: Hauts-de-France
+title: Hauts-de-France (UPHF)
 website: https://www.uphf.fr
 stats:
   visitors_per_month: 683200

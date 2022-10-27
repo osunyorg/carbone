@@ -1,10 +1,10 @@
 ---
 title: Gustave Eiffel
-website: http://www.u-pem.fr
+website: https://www.univ-gustave-eiffel.fr
 stats:
-  visitors_per_month: 138900
-  average_pageviews: 3.91
+  visitors_per_month: 140300
+  average_pageviews: 4.06
 carbon:
-  home: 0.56
-  legal: 0.09
+  home: 4.41
+  legal: 0.31
 ---

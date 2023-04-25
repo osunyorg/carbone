@@ -12,6 +12,11 @@ enableRobotsTXT: true
 module:
   _merge: deep
 
+deployment:
+  targets:
+    - name: "production"
+      URL: "s3://b054f96385130aab1c66e748250982bd97291f7c019eb0a8d4e8db435165d797?endpoint=garage.deuxfleurs.fr&s3ForcePathStyle=true&region=garage"
+
 ## PARAMS
 params:
   _merge: deep

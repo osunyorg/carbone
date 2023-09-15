@@ -6,9 +6,11 @@ stats:
   average_pageviews: 7.06
 pages:
   home: 
-    url: 
-    ko: 0
+    url: https://univ-cotedazur.fr
+    ko: 19300
+    diag: https://diagnostic.noesya.coop/cac1ebbf-a9b5-4cba-92da-0a1546b748ca
   legal: 
-    url: 
-    ko: 0
+    url: https://univ-cotedazur.fr/mentions-legales-1
+    ko: 3350
+    diag: https://diagnostic.noesya.coop/18deb749-6b02-408c-a251-73756bae2e51
 ---

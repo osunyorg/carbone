@@ -6,9 +6,11 @@ stats:
   average_pageviews: 8.91
 pages:
   home: 
-    url: 
-    ko: 0
+    url: https://univ-avignon.fr
+    ko: 4740
+    diag: 
   legal: 
-    url: 
-    ko: 0
+    url: https://univ-avignon.fr/mentions-legales-et-protection-des-donnees-a-caractere-personnel/
+    ko: 631
+    diag: https://diagnostic.noesya.coop/7b31c4d1-16a7-4671-84fd-8043d6c855c3
 ---

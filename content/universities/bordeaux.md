@@ -6,9 +6,11 @@ stats:
   average_pageviews: 11.71
 pages:
   home: 
-    url: 
-    ko: 0
+    url: https://www.u-bordeaux.fr
+    ko: 1010
+    diag: https://diagnostic.noesya.coop/34eaa2f3-0d0c-4981-8892-c4a02e91149a
   legal: 
-    url: 
-    ko: 0
+    url: https://www.u-bordeaux.fr/mentions-legales
+    ko: 359
+    diag: https://diagnostic.noesya.coop/873b96e6-768a-4d34-8d3e-f47416936204
 ---

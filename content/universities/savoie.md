@@ -4,7 +4,11 @@ website: https://www.univ-smb.fr
 stats:
   visitors_per_month: 515200
   average_pageviews: 6.09
-carbon:
-  home: 0.39
-  legal: 0.33
+pages:
+  home: 
+    url: 
+    ko: 0
+  legal: 
+    url: 
+    ko: 0
 ---

@@ -4,7 +4,11 @@ website: https://www.sorbonne-universite.fr
 stats:
   visitors_per_month: 2600000
   average_pageviews: 5.29
-carbon:
-  home: 0.82
-  legal: 0.71
+pages:
+  home: 
+    url: 
+    ko: 0
+  legal: 
+    url: 
+    ko: 0
 ---

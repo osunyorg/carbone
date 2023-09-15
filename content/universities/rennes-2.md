@@ -4,7 +4,11 @@ website: https://www.univ-rennes2.fr
 stats:
   visitors_per_month: 1100000
   average_pageviews: 7.8
-carbon:
-  home: 1.47
-  legal: 0.47
+pages:
+  home: 
+    url: 
+    ko: 0
+  legal: 
+    url: 
+    ko: 0
 ---

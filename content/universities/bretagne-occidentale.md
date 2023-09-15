@@ -4,7 +4,11 @@ website: https://www.univ-brest.fr
 stats:
   visitors_per_month: 889200
   average_pageviews: 9.37
-carbon:
-  home: 1.79
-  legal: 1.01
+pages:
+  home: 
+    url: 
+    ko: 0
+  legal: 
+    url: 
+    ko: 0
 ---

@@ -4,18 +4,20 @@
   {{ $pages_per_month := mul $visitors_per_month $average_pageviews }}
   {{ $pages_per_year := mul 12 $pages_per_month }}
 
-  {{ $home := .Params.carbon.home}}
-  {{ $legal := .Params.carbon.legal}}
-  {{ $average_carbon := div (add $home $legal) 2 }}
+  {{ $home := .Params.pages.home.ko }}
+  {{ $legal := .Params.pages.legal.ko }}
+  {{ $average_ko := div (add $home $legal) 2 }}
+  {{ $average_carbon := mul $average_ko site.Params.co2_per_ko }}
 
   {{ $total_per_month := mul $average_carbon $pages_per_month }}
   {{ $total_per_year := mul $average_carbon $pages_per_year }}
   {{ $total_tons_per_month := div $total_per_month 1000000 }}
   {{ $total_tons_per_year := div $total_per_year 1000000 }}
 
-  {{ $home_with_osuny := site.Params.carbon.home}}
-  {{ $legal_with_osuny := site.Params.carbon.legal}}
-  {{ $average_carbon_with_osuny := div (add $home_with_osuny $legal_with_osuny) 2 }}
+  {{ $home_with_osuny := site.Params.reference.home.ko }}
+  {{ $legal_with_osuny := site.Params.reference.legal.ko }}
+  {{ $average_ko_with_osuny := div (add $home_with_osuny $legal_with_osuny) 2 }}
+  {{ $average_carbon_with_osuny := mul $average_ko_with_osuny site.Params.co2_per_ko }}
   {{ $total_per_month_with_osuny := mul $average_carbon_with_osuny $pages_per_month }}
   {{ $total_per_year_with_osuny := mul $average_carbon_with_osuny $pages_per_year }}
   {{ $total_tons_per_month_with_osuny := div $total_per_month_with_osuny 1000000 }}
@@ -54,7 +56,7 @@
         <tr>
           <td>Site Web</td>
           <td><a href="{{ .Params.website }}" target="_blank" rel="noreferrer">{{ .Params.website }}</a></td>
-          <td class="small">NA</td>
+          <td class="small"></td>
         </tr>
         <tr>
           <td>Visiteurs par mois</td>
@@ -89,29 +91,40 @@
           </td>
         </tr>
         <tr>
-          <td>Impact carbone de la page d'accueil</td>
-          <td>{{ $home | lang.FormatNumber 2 }} g eqCO<sub>2</sub></td>
+          <td>Poids de la page d'accueil</td>
+          <td>{{ $home | lang.FormatNumber 0 }} ko</td>
           <td class="small">
             Poids de la page calculé avec <a href="https://developers.google.com/web/tools/lighthouse" target="_blank" rel="noreferrer">Google Lighthouse</a>,
-            impact carbone calculé avec <a href="https://www.websitecarbon.com/" target="_blank" rel="noreferrer">Website carbon calculator</a>,
-            synthèse disponible sur le <a href="https://diagnostic.noesya.coop/" target="_blank" rel="noreferrer">diagnostic noesya</a>.
-            La mesure du poids de page est exacte, mais varie en fonction de l'actualité présente sur la page. La conversion en carbone est une moyenne, pas une mesure réelle.
+            synthèse disponible sur le <a href="{{ .Params.pages.home.diag }}" target="_blank" rel="noreferrer">diagnostic noesya</a>.
+            La mesure du poids de page est exacte, mais varie en fonction de l'actualité présente sur la page. 
           </td>
         </tr>
         <tr>
-          <td>Impact carbone de la page mentions légales</td>
-          <td>{{ $legal | lang.FormatNumber 2 }} g eqCO<sub>2</sub></td>
+          <td>Poids de la page mentions légales</td>
+          <td>{{ $legal | lang.FormatNumber 0 }} ko</td>
           <td class="small">
-            Idem Impact carbone de la home.
-            La mesure du poids de page est exacte. La conversion en carbone est une moyenne, pas une mesure réelle.
+            Poids de la page calculé avec <a href="https://developers.google.com/web/tools/lighthouse" target="_blank" rel="noreferrer">Google Lighthouse</a>,
+            synthèse disponible sur le <a href="{{ .Params.pages.legal.diag }}" target="_blank" rel="noreferrer">diagnostic noesya</a>.
+            La mesure du poids de page est exacte, mais varie en fonction de l'actualité présente sur la page. 
+          </td>
+        </tr>
+        <tr>
+          <td>Poids de page moyen</td>
+          <td>{{ $average_ko | lang.FormatNumber 0 }} ko</td>
+          <td class="small">
+            La moyenne accueil / mentions légales présente des incertitudes : il est possible que certaines pages soient plus lourdes que la page d'accueil, et la ventilation des poids de pages est incertaine. 
+            En revanche, il est peu probable que certaines pages soient plus légères que les mentions légales.
           </td>
         </tr>
         <tr>
           <td>Impact carbone moyen d'une page</td>
           <td>{{ $average_carbon | lang.FormatNumber 2 }} g eqCO<sub>2</sub></td>
           <td class="small">
-            Moyenne de l'Impact carbone de la page d'accueil et de l'Impact carbone de la page mentions légales.
-            Pour une mesure rigoureuse, il faudrait, pour chaque page, multiplier le nombre de vues par l'impact carbone. La moyenne accueil / mentions légales présente des incertitudes : il est possible que certaines pages soient plus lourdes que la page d'accueil, et la ventilation des poids de pages est incertaine. En revanche, il est peu probable que certaines pages soient plus légères que les mentions légales.
+            Impact carbone calculé avec <a href="https://github.com/thegreenwebfoundation/co2.js" target="_blank" rel="noreferrer">CO2.js</a>,
+            produit par The Green Web Foundation, avec des données Françaises.
+            La conversion en carbone est une moyenne, pas une mesure réelle.
+            Les paramètres de conversion sont disponibles dans le fichier <a href="https://github.com/noesya/osuny-carbone/blob/main/compute.js" target="_blank" rel="noreferrer">compute.js</a>,
+            Pour une mesure rigoureuse, il faudrait, pour chaque page, multiplier le nombre de vues par l'impact carbone. 
           </td>
         </tr>
         <tr>
@@ -131,31 +144,47 @@
           </td>
         </tr>
         <tr>
-          <td>Impact carbone de la page d'accueil avec Osuny</td>
-          <td>{{ $home_with_osuny | lang.FormatNumber 2 }} g eqCO<sub>2</sub></td>
+          <td>Poids de la page d'accueil avec Osuny</td>
+          <td>{{ $home_with_osuny | lang.FormatNumber 0 }} ko</td>
           <td class="small">
-            Idem Impact carbone de la page d'accueil
+            Poids de la page calculé avec <a href="https://developers.google.com/web/tools/lighthouse" target="_blank" rel="noreferrer">Google Lighthouse</a>,
+            synthèse disponible sur le <a href="{{ site.Params.reference.home.diag }}" target="_blank" rel="noreferrer">diagnostic noesya</a>.
+            La mesure du poids de page est exacte, mais varie en fonction de l'actualité présente sur la page. 
           </td>
         </tr>
         <tr>
-          <td>Impact carbone de la page mentions légales avec Osuny</td>
-          <td>{{ $legal_with_osuny | lang.FormatNumber 2 }} g eqCO<sub>2</sub></td>
+          <td>Poids de la page mentions légales avec Osuny</td>
+          <td>{{ $legal_with_osuny | lang.FormatNumber 0 }} ko</td>
           <td class="small">
-            Idem Impact carbone de la page d'accueil
+            Poids de la page calculé avec <a href="https://developers.google.com/web/tools/lighthouse" target="_blank" rel="noreferrer">Google Lighthouse</a>,
+            synthèse disponible sur le <a href="{{ site.Params.reference.legal.diag }}" target="_blank" rel="noreferrer">diagnostic noesya</a>.
+            La mesure du poids de page est exacte, mais varie en fonction de l'actualité présente sur la page. 
+          </td>
+        </tr>
+        <tr>
+          <td>Poids de page moyen avec Osuny</td>
+          <td>{{ $average_ko_with_osuny | lang.FormatNumber 0 }} ko</td>
+          <td class="small">
+            La moyenne accueil / mentions légales présente des incertitudes : il est possible que certaines pages soient plus lourdes que la page d'accueil, et la ventilation des poids de pages est incertaine. 
+            En revanche, il est peu probable que certaines pages soient plus légères que les mentions légales.
           </td>
         </tr>
         <tr>
           <td>Impact carbone moyen d'une page avec Osuny</td>
           <td>{{ $average_carbon_with_osuny | lang.FormatNumber 2 }} g eqCO<sub>2</sub></td>
           <td class="small">
-            Idem Impact carbone de la page mentions légales
+            Impact carbone calculé avec <a href="https://github.com/thegreenwebfoundation/co2.js" target="_blank" rel="noreferrer">CO2.js</a>,
+            produit par The Green Web Foundation, avec des données Françaises.
+            La conversion en carbone est une moyenne, pas une mesure réelle.
+            Les paramètres de conversion sont disponibles dans le fichier <a href="https://github.com/noesya/osuny-carbone/blob/main/compute.js" target="_blank" rel="noreferrer">compute.js</a>,
+            Pour une mesure rigoureuse, il faudrait, pour chaque page, multiplier le nombre de vues par l'impact carbone. 
           </td>
         </tr>
         <tr>
           <td>Tonnes équivalent CO<sub>2</sub> par mois avec Osuny</td>
           <td>{{ $total_tons_per_month_with_osuny | lang.FormatNumber 1 }} t eqCO<sub>2</sub></td>
           <td class="small">
-            Item Tonnes équivalent CO<sub>2</sub> par mois
+            Impact carbone moyen d'une page avec Osuny * Pages vues par mois.
           </td>
         </tr>
         <tr>
@@ -170,7 +199,7 @@
           <td>Tonnes équivalent CO<sub>2</sub> par an avec Osuny</td>
           <td>{{ $total_tons_per_year_with_osuny | lang.FormatNumber 1 }} t eqCO<sub>2</sub></td>
           <td class="small">
-            Idem Tonnes équivalent CO<sub>2</sub> par an
+            Impact carbone moyen d'une page avec Osuny * Pages vues par an.
           </td>
         </tr>
         <tr>

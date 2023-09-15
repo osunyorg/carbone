@@ -4,7 +4,11 @@ website: https://www.univ-tlse2.fr
 stats:
   visitors_per_month: 1300000
   average_pageviews: 6.23
-carbon:
-  home: 1.74
-  legal: 0.66
+pages:
+  home: 
+    url: 
+    ko: 0
+  legal: 
+    url: 
+    ko: 0
 ---

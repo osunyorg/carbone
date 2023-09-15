@@ -23,5 +23,14 @@ params:
   carbon:
     home: 0.08
     legal: 0.04
-  cookie_banner:
-    enable: false
+  co2_per_ko: 0.00023188202504999998
+  reference:
+    home:
+      url: https://www.iut.u-bordeaux-montaigne.fr/
+      ko: 267
+      diag: https://diagnostic.noesya.coop/e73a9f7e-8bbf-4699-9871-d0a391e6ab95
+    legal:
+      url: https://www.iut.u-bordeaux-montaigne.fr/mentions-legales/
+      ko: 115
+      diag: https://diagnostic.noesya.coop/fb44a300-8aa2-4a0f-b2e6-71d0dbec0671
+

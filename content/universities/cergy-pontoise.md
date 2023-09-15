@@ -4,7 +4,11 @@ website: https://www.cyu.fr
 stats:
   visitors_per_month: 267600
   average_pageviews: 7.07
-carbon:
-  home: 2.98
-  legal: 1.14
+pages:
+  home: 
+    url: 
+    ko: 0
+  legal: 
+    url: 
+    ko: 0
 ---

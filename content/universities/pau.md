@@ -4,7 +4,11 @@ website: https://www.univ-pau.fr
 stats:
   visitors_per_month: 631600
   average_pageviews: 5.82
-carbon:
-  home: 1.33
-  legal: 0.71
+pages:
+  home: 
+    url: 
+    ko: 0
+  legal: 
+    url: 
+    ko: 0
 ---

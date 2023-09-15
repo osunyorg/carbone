@@ -4,7 +4,11 @@ website: https://www.u-bordeaux-montaigne.fr
 stats:
   visitors_per_month: 1100000
   average_pageviews: 7.12
-carbon:
-  home: 2.95
-  legal: 0.46
+pages:
+  home: 
+    url: 
+    ko: 0
+  legal: 
+    url: 
+    ko: 0
 ---

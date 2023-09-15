@@ -4,7 +4,11 @@ website: https://www.univ-perp.fr
 stats:
   visitors_per_month: 310700
   average_pageviews: 4.7
-carbon:
-  home: 3.03
-  legal: 1.35
+pages:
+  home: 
+    url: 
+    ko: 0
+  legal: 
+    url: 
+    ko: 0
 ---

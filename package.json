@@ -5,6 +5,7 @@
   "author": "noesya",
   "license": "MIT",
   "dependencies": {
+    "@tgwf/co2": "^0.13.7",
     "chart.js": "^3.7.1",
     "osuny-hugo-theme": "./themes/osuny-hugo-theme",
     "tablesort": "^5.3.0"

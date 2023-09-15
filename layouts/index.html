@@ -46,15 +46,17 @@
             {{ $average_pageviews := .Params.stats.average_pageviews }}
             {{ $pages_per_month := mul $visitors_per_month $average_pageviews }}
             {{ $pages_per_year := mul 12 $pages_per_month }}
-            {{ $home := .Params.carbon.home}}
-            {{ $legal := .Params.carbon.legal}}
-            {{ $average_carbon := div (add $home $legal) 2 }}
+            {{ $home := .Params.pages.home.ko }}
+            {{ $legal := .Params.pages.legal.ko }}
+            {{ $average_ko := div (add $home $legal) 2 }}
+            {{ $average_carbon := mul $average_ko site.Params.co2_per_ko }}
             {{ $total := mul $average_carbon $pages_per_year }}
             {{ $total_tons := div $total 1000000 }}
 
-            {{ $home_with_osuny := site.Params.carbon.home}}
-            {{ $legal_with_osuny := site.Params.carbon.legal}}
-            {{ $average_carbon_with_osuny := div (add $home_with_osuny $legal_with_osuny) 2 }}
+            {{ $home_with_osuny := site.Params.reference.home.ko }}
+            {{ $legal_with_osuny := site.Params.reference.legal.ko }}
+            {{ $average_ko_with_osuny := div (add $home_with_osuny $legal_with_osuny) 2 }}
+            {{ $average_carbon_with_osuny := mul $average_ko_with_osuny site.Params.co2_per_ko }}
             {{ $total_per_year_with_osuny := mul $average_carbon_with_osuny $pages_per_year }}
             {{ $total_tons_per_year_with_osuny := div $total_per_year_with_osuny 1000000 }}
             {{ $total_tons_saved := sub $total_tons $total_tons_per_year_with_osuny }}

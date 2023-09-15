@@ -4,7 +4,11 @@ website: https://www.unimes.fr
 stats:
   visitors_per_month: 118100
   average_pageviews: 7.9
-carbon:
-  home: 0.88
-  legal: 0.29
+pages:
+  home: 
+    url: 
+    ko: 0
+  legal: 
+    url: 
+    ko: 0
 ---

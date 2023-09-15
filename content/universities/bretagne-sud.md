@@ -4,7 +4,11 @@ website: https://www.univ-ubs.fr
 stats:
   visitors_per_month: 259100
   average_pageviews: 7.45
-carbon:
-  home: 1.85
-  legal: 0.58
+pages:
+  home: 
+    url: 
+    ko: 0
+  legal: 
+    url: 
+    ko: 0
 ---

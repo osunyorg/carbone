@@ -6,9 +6,11 @@ stats:
   average_pageviews: 7.47
 pages:
   home: 
-    url: 
-    ko: 0
+    url: https://www.ut-capitole.fr
+    ko: 3500
+    diag: https://diagnostic.noesya.coop
   legal: 
-    url: 
-    ko: 0
+    url: https://www.ut-capitole.fr/accueil/mentions-legales
+    ko: 1600
+    diag: https://diagnostic.noesya.coop
 ---

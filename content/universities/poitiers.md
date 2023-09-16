@@ -6,9 +6,11 @@ stats:
   average_pageviews: 7.01
 pages:
   home: 
-    url: 
-    ko: 0
+    url: https://www.univ-poitiers.fr
+    ko: 2460
+    diag: https://diagnostic.noesya.coop/895f6c9f-2ff4-4995-84b0-d3a07a584dfa
   legal: 
-    url: 
-    ko: 0
+    url: https://www.univ-poitiers.fr/mentions-legales
+    ko: 575
+    diag: https://diagnostic.noesya.coop/15e653f8-f7b8-48c6-8389-6566c658faa8
 ---

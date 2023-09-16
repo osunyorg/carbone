@@ -6,9 +6,11 @@ stats:
   average_pageviews: 8
 pages:
   home: 
-    url: 
-    ko: 0
+    url: https://www.univ-fcomte.fr
+    ko: 5420
+    diag: https://diagnostic.noesya.coop/f739a79f-fd6a-4afb-a5b8-a08e282b8319
   legal: 
-    url: 
-    ko: 0
+    url: https://www.univ-fcomte.fr/mentions-legales
+    ko: 593
+    diag: https://diagnostic.noesya.coop/151dbaeb-782a-4f8a-8c32-e77639720209
 ---

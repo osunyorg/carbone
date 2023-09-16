@@ -6,9 +6,11 @@ stats:
   average_pageviews: 6.27
 pages:
   home: 
-    url: 
-    ko: 0
+    url: https://www.uca.fr
+    ko: 2500
+    diag: https://diagnostic.noesya.coop/9da77139-8fee-4644-b881-f26861b21847
   legal: 
-    url: 
-    ko: 0
+    url: https://www.uca.fr/mentions-legales
+    ko: 771
+    diag: https://diagnostic.noesya.coop/e9329ad4-a675-4ed4-ab8b-bece592e8552
 ---

@@ -6,9 +6,11 @@ stats:
   average_pageviews: 8.05
 pages:
   home: 
-    url: 
-    ko: 0
+    url: https://www.univ-lille.fr
+    ko: 1390
+    diag: https://diagnostic.noesya.coop/4ba54fdf-ba50-47ec-8806-adfc5ed6acfa
   legal: 
-    url: 
-    ko: 0
+    url: https://www.univ-lille.fr/mentions-legales
+    ko: 608
+    diag: https://diagnostic.noesya.coop/803c33a6-1c3d-4593-bca1-7b793e0ef1fd
 ---

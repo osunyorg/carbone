@@ -6,9 +6,11 @@ stats:
   average_pageviews: 6.88
 pages:
   home: 
-    url: 
-    ko: 0
+    url: https://www.univ-lehavre.fr
+    ko: 1420
+    diag: https://diagnostic.noesya.coop/a568292e-f3d4-4df5-8033-ff9d7d83cfea
   legal: 
-    url: 
-    ko: 0
+    url: https://www.univ-lehavre.fr/spip.php?article4
+    ko: 326
+    diag: https://diagnostic.noesya.coop/be791761-c133-44bd-8361-7b2fdc69546d
 ---

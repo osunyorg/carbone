@@ -6,9 +6,11 @@ stats:
   average_pageviews: 4.86
 pages:
   home: 
-    url: 
-    ko: 0
+    url: https://www.univ-jfc.fr
+    ko: 926
+    diag: https://diagnostic.noesya.coop/dd55a07b-b7fd-422a-8f65-eb901f2176de
   legal: 
-    url: 
-    ko: 0
+    url: https://www.univ-jfc.fr/mentions-legales
+    ko: 558
+    diag: https://diagnostic.noesya.coop/04ebd674-6832-4e5e-833b-afeb1206d150
 ---

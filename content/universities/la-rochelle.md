@@ -6,9 +6,11 @@ stats:
   average_pageviews: 2.95
 pages:
   home: 
-    url: 
-    ko: 0
+    url: https://www.univ-larochelle.fr
+    ko: 1380
+    diag: https://diagnostic.noesya.coop/3122132d-55b8-4377-b016-8aed393e8e18
   legal: 
-    url: 
-    ko: 0
+    url: https://www.univ-larochelle.fr/mentions-legales/
+    ko: 1010
+    diag: https://diagnostic.noesya.coop/8836ca0d-50bc-44ab-a62d-25f4a1851028
 ---

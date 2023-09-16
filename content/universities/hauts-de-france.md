@@ -6,9 +6,11 @@ stats:
   average_pageviews: 6.96
 pages:
   home: 
-    url: 
-    ko: 0
+    url: https://www.uphf.fr
+    ko: 681
+    diag: https://diagnostic.noesya.coop/f7af81f8-7539-4081-be8b-5a851e25d258
   legal: 
-    url: 
-    ko: 0
+    url: https://www.uphf.fr/mentions-legales
+    ko: 692
+    diag: https://diagnostic.noesya.coop/7d1121cf-a2de-4c0a-8f76-224f429e6373
 ---

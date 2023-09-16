@@ -6,9 +6,11 @@ stats:
   average_pageviews: 4.06
 pages:
   home: 
-    url: 
-    ko: 0
+    url: https://www.univ-gustave-eiffel.fr
+    ko: 11000
+    diag: https://diagnostic.noesya.coop/fb663503-0672-45e8-b337-e8281a1aaf97
   legal: 
-    url: 
-    ko: 0
+    url: https://www.univ-gustave-eiffel.fr/mentions-legales
+    ko: 1170
+    diag: https://diagnostic.noesya.coop/1e4bb05f-a3bb-4494-b2cf-544be0352eca
 ---
